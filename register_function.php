@@ -1,11 +1,11 @@
 <?php
-	//starting the session
 	session_start();
 
-	//including the database connection
-	require_once 'conn.php';
+	//including the database connectionection
+	require_once 'database.php';
 	
 	if(ISSET($_POST['register'])){
+
 		// Setting variables
 		$email = $_POST['email'];
 		$name = $_POST['name'];
@@ -15,7 +15,7 @@
 		
 		// Insertion Query
 		$query = "INSERT INTO `member` (email, name, username, password, is_admin) VALUES(:email, :name, :username, :password, :is_admin)";
-		$stmt = $conn->prepare($query);
+		$stmt = $connection->prepare($query);
 		$stmt->bindParam(':email', $email);
 		$stmt->bindParam(':name', $name);
 		$stmt->bindParam(':username', $username);
@@ -24,6 +24,7 @@
 		
 		// Check if the execution of query is success
 		if($stmt->execute()){
+			
 			//setting a 'success' session to save our insertion success message.
 			$_SESSION['success'] = "Successfully created an account";
 

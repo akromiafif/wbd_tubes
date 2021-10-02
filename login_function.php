@@ -1,13 +1,13 @@
 <?php
 	session_start();
-	require_once 'conn.php';
+	require_once 'database.php';
 	
 	if(ISSET($_POST['login'])){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		
 		$query = "SELECT COUNT(*) as count FROM `member` WHERE `username` = :username AND `password` = :password";
-		$stmt = $conn->prepare($query);
+		$stmt = $connection->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':password', $password);
 		$stmt->execute();

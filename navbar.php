@@ -11,11 +11,17 @@
       rel="stylesheet"
     />
     <link rel="icon" href="img/logo.svg" type="image/x-icon" />
-    <title>Dorayaki Shop</title>
+    <link rel="stylesheet" href="css/navbar.css" />
   </head>
   <body>
-    <?php
-      require 'navbar.php';
-    ?>
+    <div class="navbar">
+      <div>
+        <img src="img/logo.svg" />
+      </div>
+      <div>
+        <a href="register.php">Sign Up</a>
+        <a href="login.php">Login</a>
+      </div>
+    </div>
   </body>
 </html>
