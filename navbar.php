@@ -19,8 +19,8 @@
         <img src="img/logo.svg" />
       </div>
       <div>
-        <a href="register.php">Sign Up</a>
-        <a href="login.php">Login</a>
+        <a href="pages/register.php">Sign Up</a>
+        <a href="pages/login.php">Login</a>
       </div>
     </div>
   </body>

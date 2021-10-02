@@ -21,7 +21,7 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<!-- Registration Form start -->
-			<form method="POST" action="register_function.php">	
+			<form method="POST" action="functions/register_function.php">	
 				<div class="alert alert-info">Registration</div>
 				<div class="form-group">
 					<label>Email</label>

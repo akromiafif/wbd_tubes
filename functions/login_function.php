@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	require_once 'database.php';
+	require_once '../database.php';
 	
-	if(ISSET($_POST['login'])){
+	if(isset($_POST['login'])){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		
@@ -16,10 +16,10 @@
 		$count = $row['count'];
 		
 		if($count > 0){
-			header('location:home.php');
+			header('location:../pages/home.php');
 		}else{
 			$_SESSION['error'] = "Invalid username or password";
-			header('location:login.php');
+			header('location:../pages/login.php');
 		}
 	}
 ?>
