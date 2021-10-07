@@ -19,21 +19,6 @@
     <link rel="icon" href="../img/logo.svg" type="image/x-icon" />
     <title>Dorayaki Shop</title>
     <title>Login</title>
-    <style>
-      .error {
-        background-color: #DC3545;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        margin-top: 1rem;
-        padding: 0.5rem 1rem;
-        color: white;
-        border-radius: 0.5rem;
-        font-size: 0.9rem;
-      }
-    </style>
   </head>
   <body>
     <div class="container">
