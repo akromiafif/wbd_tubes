@@ -15,6 +15,7 @@
   </head>
   <body>
     <?php
+      header("Location: pages/login.php");
       require 'navbar.php';
     ?>
   </body>
