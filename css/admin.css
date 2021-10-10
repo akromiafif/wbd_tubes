@@ -1,0 +1,11 @@
+.boxProduk{
+    float: left;
+    padding: 0.5rem;
+    clear: both;
+}
+.newline{
+    clear: both;
+}
+.alertFailed{
+    color: red;
+}
