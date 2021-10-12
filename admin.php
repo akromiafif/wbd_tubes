@@ -18,14 +18,14 @@
     <title>Dorayaki Shop</title>
   </head>
   <body>
-    <form name="form1" action="function/addProduct_function.php" method="POST" onsubmit="return validateForm()">
+    <form name="form1" action="functions/addProduct_function.php" method="POST" onsubmit="return validateForm()">
       <div class="boxProduk">
           <label class="namaProduk">Nama varian</label>
           <input type="text" name="productName" placeholder="Ex: Takoyaki" >
       </div>
       <div class="boxProduk">
           <label class="hargaProduk">Harga</label>
-          <input type="text" name="price" >
+          <input type="number" name="price" >
       </div>
       <div class="boxProduk">
           <label class="stok">Stok</label>
