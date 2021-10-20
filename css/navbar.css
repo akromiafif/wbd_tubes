@@ -23,7 +23,7 @@ body {
   height: 4rem;
 }
 
-.navbar a {
+.navbar a, button {
   text-decoration: none;
   display: inline-block;
   width: 6rem;
@@ -34,11 +34,15 @@ body {
   color: white;
   font-size: 0.8rem;
 }
-.register:hover{
-  background-image: linear-gradient(to right, #2641a1, #ff5f7f, #fcab63);
+
+button {
+  border: none;
+  background-color: #0F0023;
 }
-.navbar .search {
-  float: right;
+
+.register:hover{
+  cursor: pointer;
+  background-image: linear-gradient(to right, #2641a1, #ff5f7f, #fcab63);
 }
 
 .navbar input[type=text] {
@@ -48,26 +52,19 @@ body {
   border: none;
 }
 
-.navbar .search button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.navbar .search button:hover {
-  background: #ccc;
-}
 
 @media screen and (max-width: 600px) {
   .navbar .search {
     float: none;
   }
-  .navbar input[type=text], .navbar .search button {
+  .navbar input[type=text], .navbar .search  {
     float: none;
     display: block;
     text-align: left;

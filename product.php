@@ -49,12 +49,19 @@ if (isset($_GET['id'])) {
                         <p id='terjual'>Terjual &nbsp&nbsp&nbsp: <?php echo $sold;?></p>
                         <form id="form2" name="form2" method="post" action="product.php?id=<?php echo $id; ?>">
                             <input type="hidden" name="pid" id="pid" value="<?php echo $id;?>" />
-                            <input type="submit" name="button" id="button" value="Delete" />
+                            <input type="submit" name="button" id="button" value="Delete" onclick="clicked(event)"/>
                         </form>
                     </div>
             <?php
                 }
             ?>
+            <script>
+                function clicked(e) {
+                    if(!confirm('Are you sure?')) {
+                        e.preventDefault();
+                    }
+                }
+            </script>
         </div>
     </body>
 </html>

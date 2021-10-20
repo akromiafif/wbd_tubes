@@ -16,7 +16,9 @@
   </head>
   <body>
     <?php
-      //header("Location: pages/login.php");
+      if (!isset($_COOKIE["username"])) {
+        header('location: pages/login.php');
+      }
       require_once 'navbar.php';
       if(isset($_POST['product'])){
         $_SESSION['searchitem'] = $_POST['product'];

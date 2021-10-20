@@ -22,7 +22,7 @@
     }
     else{
         $query = "SELECT * FROM Produk, Penjualan WHERE Produk.nama = Penjualan.nama 
-        ORDER BY Penjualan.terjual DESC;";
+        ORDER BY Penjualan.terjual DESC LIMIT 10;";
     }
 
     if ($showItem){
@@ -30,7 +30,8 @@
         while($row=$produk->fetch(PDO::FETCH_ASSOC)){
             $product_name = $row["nama"];
             $image = $row["gambar"];
-            $price = $row["harga"];
+            $description = $row["deskripsi"];
+            $sold = $row['terjual'];
             $dynamicList .= '
             <table cellpadding="10">
                 <tr>
@@ -41,8 +42,9 @@
                     </td>
                     <td valign="center">
                     <a href="product.php?id=' . $product_name . '">
-                        ' . $product_name . '<br/>
-                        Rp' . $price . '
+                        <strong>' . $product_name . '</strong><br/>
+                        Deskripsi : ' . $description . '<br/>
+                        Terjual &nbsp&nbsp&nbsp&nbsp: ' . $sold .' 
                     </a>
                     </td>
                 </tr>

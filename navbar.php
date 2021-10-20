@@ -1,4 +1,12 @@
-<?php //session_start()?>
+<?php //session_start()
+  require_once "functions/user_function.php";
+
+  if (isset($_POST["logout"])) {
+		setcookie("username", $_COOKIE["username"], time() - 3600, "/");
+		header('location: pages/login.php');
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,15 +26,39 @@
     <div class="navbar">
       <div>
         <a href="index.php"><img src="img/logo.svg"/></a>
-        
       </div>
       <div class="search">
-        <form action="index.php" name="form2" method="POST">
-          <input type="text" placeholder="Enter a Product" name="product">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-        <a class="register" href="pages/register.php">Sign Up</a>
-        <a class="register" href="pages/login.php">Login</a>
+        <?php if(isset($_SESSION['error'])): ?>
+              <div class="error">
+                <p><?php echo $_SESSION['error']?></p>
+              </div>
+              
+            <?php endif; session_unset(); ?>
+
+        <?php 
+          if (isset($_COOKIE["username"])) {
+            $connection = new PDO("sqlite:"."db/dorayaki.db");
+            $username = $_COOKIE['username'];
+    
+            $is_admin = $connection->query("SELECT count(*) FROM member WHERE username = '$username' AND is_admin = 1")->fetchColumn();
+    
+            if ($is_admin == 1) {
+              ?>
+              <p>Admin</p>
+              <?php 
+            } else {
+              ?>
+                <a><?php echo $username; ?></a>
+                <form method="POST" action="">
+                  <button class="register" type="submit" name="logout">Logout</button>
+                </form>
+              <?php
+            }
+          } else { 
+          ?>
+            <a class="register" href="pages/register.php">Sign Up</a>
+            <a class="register" href="pages/login.php">Login</a>
+          <?php } ?>
       </div>
     </div>
   </body>

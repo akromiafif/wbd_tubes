@@ -17,7 +17,7 @@
 		
 		if($count > 0){
 			setcookie("username", $username, time() + (86400 * 30), "/");
-			header('location:../pages/home.php');
+			header('location:../index.php');
 		}else{
 			$_SESSION['error'] = "Invalid username or password";
 			header('location:../pages/login.php');
