@@ -1,11 +1,11 @@
 <?php
 	// check if the database file exists and create a new if not
-	if(!is_file('../db/db_member.sqlite3')){
-		file_put_contents('../db/db_member.sqlite3', null);
+	if(!is_file('../db/dorayaki.db')){
+		file_put_contents('../db/dorayaki.db', null);
 	}
 
 	// connecting the database
-	$connection = new PDO('sqlite:../db/db_member.sqlite3');
+	$connection = new PDO('sqlite:../db/dorayaki.db');
 	
 	// setting connection attributes
 	$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

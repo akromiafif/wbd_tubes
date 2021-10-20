@@ -34,7 +34,48 @@ body {
   color: white;
   font-size: 0.8rem;
 }
-
-.navbar a:hover {
+.register:hover{
   background-image: linear-gradient(to right, #2641a1, #ff5f7f, #fcab63);
+}
+.navbar .search {
+  float: right;
+}
+
+.navbar input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.navbar .search button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar .search button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar .search {
+    float: none;
+  }
+  .navbar input[type=text], .navbar .search button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .navbar input[type=text] {
+    border: 1px solid #ccc;  
+  }
 }

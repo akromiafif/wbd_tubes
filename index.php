@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,8 +16,12 @@
   </head>
   <body>
     <?php
-      header("Location: pages/login.php");
-      require 'navbar.php';
+      //header("Location: pages/login.php");
+      require_once 'navbar.php';
+      if(isset($_POST['product'])){
+        $_SESSION['searchitem'] = $_POST['product'];
+      }
+      require 'functions/productDashboard.php';
     ?>
   </body>
 </html>

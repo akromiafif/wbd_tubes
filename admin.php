@@ -18,39 +18,53 @@
     <title>Dorayaki Shop</title>
   </head>
   <body>
-    <form name="form1" action="functions/addProduct_function.php" method="POST" onsubmit="return validateForm()">
-      <div class="boxProduk">
-          <label class="namaProduk">Nama varian</label>
-          <input type="text" name="productName" placeholder="Ex: Takoyaki" >
+    <div class="bckground">
+      <div class="container">
+        <form name="form1" action="functions/addProduct_function.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+          <div class="inputText">
+            <p class="font">Nama varian</p>
+            <input type="text" name="productName" placeholder="Ex: Takoyaki" >
+            <p class="font">Harga</p>
+            <input type="number" name="price" >
+            <p class="font">Stok</p>
+            <input type="number" name="stock" >
+            <p class="font">Deskripsi</p>
+            <input type="text" name="description">
+            <p class="font">Gambar Produk</p>
+            <input type="file" name="fileToUpload">
+            <button type="submit" name="submit1">Submit</button>
+            <?php
+            if(isset($_SESSION['gagal'])){
+              $error = $_SESSION['gagal'];
+              ?>
+              <div class="alertFailed" id="error"><?=$error?></div>
+              <?php
+            }
+            elseif(isset($_SESSION['file'])){
+              $file = $_SESSION['file'];
+              ?>
+              <div class="uploadFailed" id="fileError"><?=$file?></div>
+              <?php
+            }
+            elseif(isset($_SESSION['sukses'])){
+              $succes = $_SESSION['sukses'];
+              ?>
+              <div class="alertSucced" id="succes"><?=$succes?></div>
+              <?php
+            }
+            ?>
+          </div>
+        </form>
       </div>
-      <div class="boxProduk">
-          <label class="hargaProduk">Harga</label>
-          <input type="number" name="price" >
-      </div>
-      <div class="boxProduk">
-          <label class="stok">Stok</label>
-          <input type="number" name="stock" >
-      </div>
-      <div class="boxProduk">
-          <label class="deskripsi">Deskripsi</label>
-          <input type="text" name="description" >
-      </div>
-      <div class="boxProduk">
-          <label class="gambarProduk">Gambar Produk</label>
-          <input type="url" name="link_photo" placeholder="https://example.com" >
-      </div>
-      <div class="newline"></div>
-      <div class="save">
-        <button type="submit" name="submit1">Save</button>
-      </div>
-    </form>
+    </div>
+    
     <script type="text/javascript">
       function validateForm() {
         var a = document.forms["form1"]["productName"].value;
         var b = document.forms["form1"]["price"].value;
         var c = document.forms["form1"]["stock"].value;
         var d = document.forms["form1"]["description"].value;
-        var e = document.forms["form1"]["link_photo"].value;
+        var e = document.forms["form1"]["fileToUpload"].value;
         if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "", e == null || e == "") {
           alert("Please Fill All Required Field");
           return false;
@@ -58,18 +72,6 @@
       }
     </script>
     <?php
-      if(isset($_SESSION['gagal'])){
-        $error = $_SESSION['gagal'];
-        ?>
-        <div class="alertFailed" id="error"><?=$error?></div>
-        <?php
-      }
-      elseif(isset($_SESSION['sukses'])){
-        $succes = $_SESSION['sukses'];
-        ?>
-        <div class="alertSucced" id="succes"><?=$succes?></div>
-        <?php
-      }
       session_unset();
       ?>
   </body>

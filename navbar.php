@@ -1,3 +1,4 @@
+<?php //session_start()?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,11 +17,16 @@
   <body>
     <div class="navbar">
       <div>
-        <img src="img/logo.svg" />
+        <a href="index.php"><img src="img/logo.svg"/></a>
+        
       </div>
-      <div>
-        <a href="pages/register.php">Sign Up</a>
-        <a href="pages/login.php">Login</a>
+      <div class="search">
+        <form action="index.php" name="form2" method="POST">
+          <input type="text" placeholder="Enter a Product" name="product">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <a class="register" href="pages/register.php">Sign Up</a>
+        <a class="register" href="pages/login.php">Login</a>
       </div>
     </div>
   </body>

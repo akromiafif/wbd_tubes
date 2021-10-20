@@ -4,7 +4,7 @@
 	
 	if(isset($_POST['login'])){
 		$username = $_POST['username'];
-		$password = $_POST['password'];
+		$password = md5($_POST['password']);
 		
 		$query = "SELECT COUNT(*) as count FROM `member` WHERE `username` = :username AND `password` = :password";
 		$stmt = $connection->prepare($query);
