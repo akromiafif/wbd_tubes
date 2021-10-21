@@ -3,7 +3,9 @@
 
 	//including the database connectionection
 	require_once '../database.php';
-	
+
+	$keyword = $_GET["keyword"];
+
 	if(isset($_POST['register'])){
 
 		// Setting variables
@@ -67,3 +69,7 @@
 		return false;
 	}
 ?>
+
+<?php if(checkUsername($keyword, $connection)): ?>
+	User already exist
+<?php endif; session_unset(); ?>

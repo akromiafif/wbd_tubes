@@ -35,6 +35,8 @@ if (isset($_GET['id'])) {
                     // delete query in database
                     $connection->query("DELETE FROM Produk WHERE nama = '$id'");
                     $connection->query("DELETE FROM Penjualan WHERE nama = '$id'");
+                    // delete photo file
+                    unlink("img/uploads/$image");
                 }
                 else{
             ?>

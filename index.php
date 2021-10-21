@@ -25,5 +25,9 @@
       }
       require 'functions/productDashboard.php';
     ?>
+    <div id="container">
+
+    </div>
+    <!-- <script src="js/search.js"></script> -->
   </body>
 </html>

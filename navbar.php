@@ -1,6 +1,6 @@
-<?php //session_start()
+<?php
   require_once "functions/user_function.php";
-
+  
   if (isset($_POST["logout"])) {
 		setcookie("username", $_COOKIE["username"], time() - 3600, "/");
 		header('location: pages/login.php');
@@ -48,9 +48,17 @@
               <?php 
             } else {
               ?>
+                <!-- <form method="POST" action="">
+                  <input tyepe="text" name="keyword" placeholder="Cari Varian" autofocus autocomplete="off" id="keyword" />
+                  <button class="hide" type="submit" name="search" id="search"></button>
+                </form> -->
                 <a><?php echo $username; ?></a>
                 <form method="POST" action="">
                   <button class="register" type="submit" name="logout">Logout</button>
+                </form>
+                <form method="POST" action="index.php">
+                  <input type="text" name="product" placeholder="Cari Varian" id="keyword" />
+                  <button class="register" type="submit" name="search">Cari</button>
                 </form>
               <?php
             }

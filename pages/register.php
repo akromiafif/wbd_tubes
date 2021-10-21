@@ -48,9 +48,13 @@
               name="password"
               id="password"
             />
+            <div class="error" id="err-text">
+                
+            </div>
             <?php if(isset($_SESSION['error'])): ?>
               <div class="error">
                 <p><?php echo $_SESSION['error']?></p>
+                <p>Hello</p>
               </div>
               
             <?php endif; session_unset(); ?>
@@ -59,5 +63,6 @@
         </form>
       </div>
     </div>
+    <script src="../js/register.js"></script>
   </body>
 </html>
