@@ -70,6 +70,8 @@
 	}
 ?>
 
-<?php if(checkUsername($keyword, $connection)): ?>
-	User already exist
-<?php endif; session_unset(); ?>
+<?php if(isset($keyword)): ?>
+	<?php if(checkUsername($keyword, $connection)): ?>
+		User already exist
+	<?php endif; session_unset(); ?>
+<?php endif; ?>

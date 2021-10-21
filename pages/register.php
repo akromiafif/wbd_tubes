@@ -54,7 +54,6 @@
             <?php if(isset($_SESSION['error'])): ?>
               <div class="error">
                 <p><?php echo $_SESSION['error']?></p>
-                <p>Hello</p>
               </div>
               
             <?php endif; session_unset(); ?>
