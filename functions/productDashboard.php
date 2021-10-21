@@ -1,12 +1,7 @@
 <link href="css/product.css" rel="stylesheet">
 <?php
-    try {
-        $connection = new PDO("sqlite:"."db/dorayaki.db");
-        
-    } 
-    catch(Exception $e) {
-        die('connection_unsuccessful: ' . $e->getMessage());
-    }
+
+    require_once "db.php";
 
     $dynamicList = "";
     $showItem = true;

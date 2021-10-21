@@ -31,7 +31,7 @@
             <p class="font">Deskripsi</p>
             <input type="text" name="description">
             <p class="font">Gambar Produk</p>
-            <input type="file" name="fileToUpload">
+            <input type="file" name="fileToUpload" value="tessiugsiug">
             <button type="submit" name="submit1">Submit</button>
             <?php
             if(isset($_SESSION['gagal'])){

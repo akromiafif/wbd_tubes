@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require_once "../db.php";
 
   // set up upload image
   $target_dir = "../img/uploads/";
@@ -7,7 +8,7 @@
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-      $connection = new PDO("sqlite:"."../db/dorayaki.db");
+     // $connection = new PDO("sqlite:"."../db/dorayaki.db");
       if (isset($_POST["submit1"])){
         $nRow = $connection->query("SELECT count(*) FROM Produk WHERE nama = '$_POST[productName]'")->fetchColumn();
         

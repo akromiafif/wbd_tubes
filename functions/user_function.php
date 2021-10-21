@@ -1,8 +1,8 @@
 <?php
     //including the database connectionection
-    // require_once '../database.php';
+    //require_once '../database.php';
 
-    function checkIsAdmin($connection) {
+    function checkIsAdmin() {
         $connection = new PDO("sqlite:"."../db/dorayaki.db");
         $username = $_COOKIE['username'];
 

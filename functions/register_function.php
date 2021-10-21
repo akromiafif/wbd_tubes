@@ -2,7 +2,7 @@
 	session_start();
 
 	//including the database connectionection
-	require_once '../database.php';
+	require_once '../db.php';
 
 	$keyword = $_GET["keyword"];
 

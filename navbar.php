@@ -1,5 +1,6 @@
 <?php
   require_once "functions/user_function.php";
+  require_once "db.php";
   
   if (isset($_POST["logout"])) {
 		setcookie("username", $_COOKIE["username"], time() - 3600, "/");
@@ -37,7 +38,7 @@
 
         <?php 
           if (isset($_COOKIE["username"])) {
-            $connection = new PDO("sqlite:"."db/dorayaki.db");
+            //$connection = new PDO("sqlite:"."db/dorayaki.db");
             $username = $_COOKIE['username'];
     
             $is_admin = $connection->query("SELECT count(*) FROM member WHERE username = '$username' AND is_admin = 1")->fetchColumn();
