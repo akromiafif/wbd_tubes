@@ -55,7 +55,7 @@
               $connection->query("INSERT INTO `Produk` (nama, deskripsi, stok, harga, gambar, nama_terjual) VALUES('$_POST[productName]', 
               '$_POST[description]', '$_POST[stock]' , '$_POST[price]', '$picture', '$_POST[productName]')");
 
-              $connection->query("INSERT INTO `Penjualan` (nama, terjual) VALUES('$_POST[productName]', 4)");
+              $connection->query("INSERT INTO `Penjualan` (nama, terjual) VALUES('$_POST[productName]', 2)");
               $_SESSION['sukses'] = "Insert Product Succed";
             } 
             catch(Exception $e) {

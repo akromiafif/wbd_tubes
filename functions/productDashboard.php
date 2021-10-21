@@ -33,22 +33,15 @@
             $description = $row["deskripsi"];
             $sold = $row['terjual'];
             $dynamicList .= '
-            <table cellpadding="10">
-                <tr>
-                    <td valign="center">
-                        <a href="product.php?id=' . $product_name . '">
-                            <img src="img/uploads/'.$image.'" alt="' . $product_name . '" width="200" height="200"/>
-                        </a>
-                    </td>
-                    <td valign="center">
-                    <a href="product.php?id=' . $product_name . '">
-                        <strong>' . $product_name . '</strong><br/>
-                        Deskripsi : ' . $description . '<br/>
-                        Terjual &nbsp&nbsp&nbsp&nbsp: ' . $sold .' 
-                    </a>
-                    </td>
-                </tr>
-            </table>';
+            <div class="product">
+                <img src="img/uploads/'.$image.'" alt="' . $product_name . '" width="180" height="180"/>
+                <h2>' . $product_name . '</h2>
+                <p class="description">' . $description . '</p>
+                <p class="sold">Sold: <span style="color: #562FFA; font-weight: bold;">' . $sold .'</span></p>
+                <div class="cart">
+                <a href="product.php?id=' . $product_name . '"><p>Detail Product</p></a>
+                </div>
+            </div>';
         }
     }
     else{
@@ -58,9 +51,9 @@
     }
     
 ?>
-<div class="table1">
+<div class="container">
     <?php 
-    echo $dynamicList;
-    unset($_SESSION['searchitem']);
+        echo $dynamicList;
+        unset($_SESSION['searchitem']);
     ?>
 </div>
