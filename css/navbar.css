@@ -2,9 +2,11 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 .search p{
   color: white;
 }
+
 body {
   padding: 0;
   margin: 0;
@@ -46,10 +48,6 @@ button {
   display: none;
 }
 
-input {
-  padding: 0.2rem 1rem;
-}
-
 input:focus {
   outline: none;
 }
@@ -59,18 +57,31 @@ input:focus {
   background-image: linear-gradient(to right, #2641a1, #ff5f7f, #fcab63);
 }
 
-.navbar input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-}
-
 .search {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+}
+
+.search input {
+  padding: 0.5rem 1rem;
+  border: none;
+}
+.search-box img {
+  width: 2rem;
+  height: 2rem;
 }
 
 

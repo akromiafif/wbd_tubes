@@ -2,7 +2,7 @@
 	session_start();
 
 	//including the database connectionection
-	require_once '../db.php';
+	require_once '../database.php';
 
 	$keyword = $_GET["keyword"];
 
@@ -38,7 +38,7 @@
 			if($stmt->execute()){
 				$_SESSION['success'] = "Successfully created an account";
 
-				header('location: ../pages/home.php');
+				header('location: ../index.php');
 			}
 		}
 	}
