@@ -1,8 +1,10 @@
 <?php 
+
+// Connect to the MySQL database  
+$connection = new PDO("sqlite:"."db/dorayaki.db"); 
+
 // Check to see the URL variable is set and that it exists in the database
 if (isset($_GET['id'])) {
-	// Connect to the MySQL database  
-    $connection = new PDO("sqlite:"."db/dorayaki.db"); 
     
 	$id = $_GET['id'];
 	$produk = $connection->query("SELECT * FROM Produk, Penjualan WHERE Produk.nama = Penjualan.nama AND
@@ -49,10 +51,15 @@ if (isset($_GET['id'])) {
                         <p id='harga'>Harga &nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo "Rp".$price;?></p>
                         <p id='stok'>Stok &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo $stock;?></p>
                         <p id='terjual'>Terjual &nbsp&nbsp&nbsp: <?php echo $sold;?></p>
-                        <form id="form2" name="form2" method="post" action="product.php?id=<?php echo $id; ?>">
-                            <input type="hidden" name="pid" id="pid" value="<?php echo $id;?>" />
-                            <input type="submit" name="button" id="button" value="Delete" onclick="clicked(event)"/>
-                        </form>
+                    <?php 
+                        $username = $_COOKIE['username'];
+                        $is_admin = $connection->query("SELECT count(*) FROM member WHERE username = '$username' AND is_admin = 1")->fetchColumn();
+                        if ($is_admin == 1){?>
+                            <form id="form2" name="form2" method="post" action="product.php?id=<?php echo $id; ?>">
+                                <input type="hidden" name="pid" id="pid" value="<?php echo $id;?>" />
+                                <input type="submit" name="button" id="button" value="Delete" onclick="clicked(event)"/>
+                            </form>
+                       <?php } ?>
                     </div>
             <?php
                 }

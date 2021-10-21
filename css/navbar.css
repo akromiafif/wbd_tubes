@@ -2,7 +2,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
+.search p{
+  color: white;
+}
 body {
   padding: 0;
   margin: 0;

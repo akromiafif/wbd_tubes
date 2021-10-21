@@ -21,7 +21,8 @@
       }
       require_once 'navbar.php';
       if(isset($_POST['product'])){
-        $_SESSION['searchitem'] = $_POST['product'];
+        $productLowercase = strtolower($_POST['product']);
+        $_SESSION['searchitem'] = $productLowercase;
       }
       require 'functions/productDashboard.php';
     ?>
