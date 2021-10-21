@@ -34,8 +34,8 @@
                 <p class="description">' . $description . '</p>
                 <p class="sold">Sold: <span style="color: #562FFA; font-weight: bold;">' . $sold .'</span></p>
                 <div class="cart">
-                <a href="product.php?id=' . $product_name . '"><p>Detail Product</p></a>
-                </div>
+                <a href="product.php?id=' . $product_name . '"><p>Detail Product</p>
+                </div></a>
             </div>';
         }
     }
