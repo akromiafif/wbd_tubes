@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require_once "uploadFile.php";
 
     $connection = new PDO("sqlite:"."../db/dorayaki.db");
@@ -9,6 +8,8 @@
         $harga = $_POST["price"];
         $deskripsi = $_POST["description"];
         $gambar = $_FILES["img"]["name"];
+
+        $_SESSION['file'] = "";
 
         // alamaat return
         $ip = $_SERVER['HTTP_REFERER'];
@@ -45,6 +46,10 @@
         else{
             echo '<script>alert("Edit Failed");</script>';
         }
+        session_start();
+        $error_message =  $_SESSION['file'];
+        $_SESSION['errorUpload'] = "makann";
+        echo $_SESSION['namaProduk'];
         echo $_SESSION['file'];
         header('Location: ' .$ip);
     }

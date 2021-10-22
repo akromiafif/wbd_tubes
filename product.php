@@ -20,7 +20,7 @@
             $sold = $row['terjual'];
         }
         
-} 
+    } 
 ?>
 <!DOCTYPE html>
     <head>
@@ -29,10 +29,14 @@
         <link href="css/product.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <?php require_once 'navbar.php';?>
+        <?php 
+            require_once 'navbar.php';
+            $_SESSION['namaProduk'] = $product_name;
+        ?>
         <div class="container-detail-produk">
                 <div class="layoutContentHal">
                 <?php
+               // echo $_SESSION['namaProduk'];
                     if(isset($_POST['button'])){
                 ?>
                     <div>Product Has Been Delete</div>
@@ -62,13 +66,26 @@
                                 <!-- open pop up -->
                                 <button class="open-button" onclick="openDelPopUp()">Delete Product</button>
                                 <button class="open-button" onclick="openEditPopUp()">Edit Product</button>
+                                <form action="productStock.php" method="post">
+                                    <button type="submit" class="open-button" name="ubahStock">Change Stock</button>
+                                </form>
                                <?php 
                                // masih belom bisa
-                                if(isset($_SESSION['file'])){ echo "tes";?>
-                                    <div><?php echo $_SESSION['file'];?></div>
+                               $tes = $_SESSION['errorUpload'];
+                               echo $tes;
+                                if(isset($_SESSION['errorUpload'])){ echo "tes";?>
+                                    <div><?php echo $_SESSION['errorUpload'];?></div>
                               <?php  
                               }
-                         } 
+                            }
+                            // user
+                            else{
+                                ?>
+                                <form action="productStock.php" method="post">
+                                    <button type="submit" class="open-button" name="beli">Buy Product</button>
+                                </form>
+                        <?php
+                            } 
                          ?>
                         </div>
                 <?php
@@ -85,7 +102,7 @@
             <div class="popup" id="editPopup">
                 <?php 
                     // session untuk edit detail produk
-                    $_SESSION['namaProduk'] = $product_name;
+                   // $_SESSION['namaProduk'] = $product_name;
                     $_SESSION['deskripsi'] = $description;
                     $_SESSION['harga'] = $price;
                     $_SESSION['gambar'] = $image;
@@ -120,6 +137,5 @@
                 document.getElementById("editPopup").style.display = "none";
             }
         </script>
-        <?php unset($_SESSION['file']);?>
     </body>
 </html>
