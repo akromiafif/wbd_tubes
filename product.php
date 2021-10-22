@@ -7,7 +7,7 @@
     // Check to see the URL variable is set and that it exists in the database
     if (isset($_GET['id'])) {
         
-        $id = $_GET['id'];
+        $id = preg_replace('/%20/', ' ', $_GET['id']) ;
         $produk = $connection->query("SELECT * FROM Produk, Penjualan WHERE Produk.nama = Penjualan.nama AND
         Produk.nama='$id'");
         // get all the product details
@@ -54,6 +54,7 @@
                             <p id='harga'>Harga &nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo "Rp".$price;?></p>
                             <p id='stok'>Stok &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo $stock;?></p>
                             <p id='terjual'>Terjual &nbsp&nbsp&nbsp: <?php echo $sold;?></p>
+                            
                         <?php 
                             $username = $_COOKIE['username'];
                             $is_admin = $connection->query("SELECT count(*) FROM member WHERE username = '$username' AND is_admin = 1")->fetchColumn();
@@ -61,8 +62,14 @@
                                 <!-- open pop up -->
                                 <button class="open-button" onclick="openDelPopUp()">Delete Product</button>
                                 <button class="open-button" onclick="openEditPopUp()">Edit Product</button>
-                                
-                        <?php } ?>
+                               <?php 
+                               // masih belom bisa
+                                if(isset($_SESSION['file'])){ echo "tes";?>
+                                    <div><?php echo $_SESSION['file'];?></div>
+                              <?php  
+                              }
+                         } 
+                         ?>
                         </div>
                 <?php
                     }
@@ -81,14 +88,17 @@
                     $_SESSION['namaProduk'] = $product_name;
                     $_SESSION['deskripsi'] = $description;
                     $_SESSION['harga'] = $price;
+                    $_SESSION['gambar'] = $image;
                 ?>
-                <form id="form3" class="formedit" name="formEdit" method="post" action="functions/editProduct.php">
+                <form id="form3" class="formedit" name="formEdit" method="post" enctype="multipart/form-data" action="functions/editProduct.php">
                     <p class="font">Nama varian</p>
                     <?php echo '<input type="text" name="productname" value="'.$product_name.'" placeholder="Ex: Takoyaki">' ?>
                     <p class="font">Deskripsi</p>
                     <?php echo '<input type="text" name="description" value="'.$description.'">' ?>
                     <p class="font">Harga</p>
                     <input type="number" name="price" value=<?php echo $price;?>>
+                    <p class="font">Gambar</p>
+                    <input type="file" name="img">
                     <button type="submit" name="editdata" class="btn">Submit</button>
                 </form>
                 <button type="button" class="btn cancel" onclick="closeEditPopUp()">Close</button>
@@ -110,5 +120,6 @@
                 document.getElementById("editPopup").style.display = "none";
             }
         </script>
+        <?php unset($_SESSION['file']);?>
     </body>
 </html>
